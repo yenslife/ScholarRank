@@ -2,6 +2,8 @@
 
 [中文說明（台灣正體）](README.zh-TW.md)
 
+![Demo](demo.gif)
+
 ## Project Overview
 ScholarRanks focuses on two deliverables:
 - **Chrome extension** – surfaces conference rankings alongside Google Scholar search results.

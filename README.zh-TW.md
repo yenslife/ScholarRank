@@ -1,5 +1,7 @@
 # ScholarRanks 專案指南（台灣正體）
 
+![Demo](demo.gif)
+
 ## 專案簡介
 ScholarRanks 聚焦於兩項功能：
 - **Chrome 擴充功能**：在 Google Scholar 搜尋結果旁顯示會議的排名資訊。
