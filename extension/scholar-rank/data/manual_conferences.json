@@ -1,0 +1,17 @@
+[
+  {
+    "type": "conference",
+    "name": "IEEE International Conference on Distributed Computing Systems",
+    "abbrv": "ICDCS",
+    "aliases": [
+      "IEEE International Conference on Distributed Computing Systems",
+      "International Conference on Distributed Computing Systems",
+      "ICDCS",
+      "IEEE ICDCS"
+    ],
+    "rank": "A",
+    "source": "Manual",
+    "source_url": "https://ieee.org/",
+    "last_updated": "2025-10-05"
+  }
+]
