@@ -8,6 +8,14 @@
     return;
   }
 
+  // Check if extension is enabled
+  const STORAGE_KEY = 'scholarRankEnabled';
+  const { scholarRankEnabled } = await chrome.storage.sync.get([STORAGE_KEY]);
+  if (scholarRankEnabled === false) {
+    console.info('[ScholarRank] extension is disabled');
+    return;
+  }
+
   const collapseAllBadges = () => {
     document
       .querySelectorAll('.scholar-rank-badge.is-expanded')

@@ -101,16 +101,27 @@ const fetchDataset = async () => {
 };
 
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-  if (!message || message.type !== 'SCHOLAR_RANK_FETCH_DATASET') {
-    return false;
+  if (!message) return false;
+
+  // Handle dataset fetch
+  if (message.type === 'SCHOLAR_RANK_FETCH_DATASET') {
+    fetchDataset()
+      .then((dataset) => sendResponse({ ok: true, data: dataset }))
+      .catch((error) => {
+        console.error('[ScholarRank] dataset fetch failed', error);
+        sendResponse({ ok: false, error: error.message });
+      });
+    return true; // keep the message channel open for async response
   }
 
-  fetchDataset()
-    .then((dataset) => sendResponse({ ok: true, data: dataset }))
-    .catch((error) => {
-      console.error('[ScholarRank] dataset fetch failed', error);
-      sendResponse({ ok: false, error: error.message });
-    });
+  // Handle cache clear
+  if (message.type === 'SCHOLAR_RANK_CLEAR_CACHE') {
+    cachedDataset = null;
+    cacheTimestamp = 0;
+    console.info('[ScholarRank] cache cleared');
+    sendResponse({ ok: true });
+    return true;
+  }
 
-  return true; // keep the message channel open for async response
+  return false;
 });
