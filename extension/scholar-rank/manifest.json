@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "ScholarRank Companion",
+  "description": "Surface conference and journal rankings next to Google Scholar search results.",
+  "version": "0.1.2",
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.google.com/*",
+        "https://scholar.googleusercontent.com/*"
+      ],
+      "js": [
+        "data/venueData.js",
+        "contentScript.js"
+      ],
+      "css": ["styles.css"]
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+.scholar-rank-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: 8px;
+  padding: 2px 8px;
+  background: #1a73e8;
+  color: #fff;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.scholar-rank-badge__rank {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 22px;
+  padding: 2px 4px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.22);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.scholar-rank-badge__label {
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.scholar-rank-badge__source {
+  font-size: 10px;
+  font-weight: 500;
+  color: #fff;
+  text-decoration: underline;
+}
+
+.scholar-rank-badge__source:hover,
+.scholar-rank-badge__source:focus {
+  text-decoration: none;
+}
