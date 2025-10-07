@@ -1,5 +1,7 @@
 # ScholarRanks
 
+<img src="ScholarRanks.png" alt="ScholarRank Icon" width="256">
+
 [中文說明（台灣正體）](README.zh-TW.md)
 
 ![Demo](demo.gif)

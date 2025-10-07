@@ -1,5 +1,7 @@
 # ScholarRanks 專案指南（台灣正體）
 
+<img src="ScholarRanks.png" alt="ScholarRank Icon" width="256">
+
 ![Demo](demo.gif)
 
 ## 專案簡介
