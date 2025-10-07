@@ -5,7 +5,11 @@
 Utility script for exporting the conference rankings published on [ConferenceRanks.com](http://www.conferenceranks.com/). The scraper now emits data in the exact format expected by the Chrome extension (`extension/scholar-rank/data/conferences.json`).
 
 ## Environment Setup
-`uv run` automatically creates and updates the managed virtual environment, so you can execute commands immediately. Run `uv sync` only if you prefer to preinstall dependencies offline.
+`uv run` automatically creates and updates the managed virtual environment, so you can execute commands immediately. For more about `uv`, see the [GitHub repository](https://github.com/astral-sh/uv).
+
+```bash
+uv run conferenceranks_scraper.py --help
+```
 
 ## Usage
 ```bash

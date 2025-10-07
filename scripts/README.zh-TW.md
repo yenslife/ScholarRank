@@ -9,8 +9,6 @@
 uv run conferenceranks_scraper.py --help
 ```
 
-若希望離線預先安裝套件，可額外執行 `uv sync`。
-
 ## 使用方式
 ```bash
 # 以預設路徑重建擴充功能資料集，並顯示詳細日誌
