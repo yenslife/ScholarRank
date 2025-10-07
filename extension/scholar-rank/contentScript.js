@@ -11,10 +11,7 @@
   // Check if extension is enabled
   const STORAGE_KEY = 'scholarRankEnabled';
   const { scholarRankEnabled } = await chrome.storage.sync.get([STORAGE_KEY]);
-  if (scholarRankEnabled === false) {
-    console.info('[ScholarRank] extension is disabled');
-    return;
-  }
+  const isExtensionEnabled = scholarRankEnabled !== false;
 
   const collapseAllBadges = () => {
     document
@@ -696,18 +693,40 @@
     results.forEach((node) => scheduleProcessing(node));
   };
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', scanResults, { once: true });
+  // Only auto-scan if extension is enabled
+  if (isExtensionEnabled) {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', scanResults, { once: true });
+    } else {
+      scanResults();
+    }
+
+    const observer = new MutationObserver(() => {
+      scanResults();
+    });
+
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true
+    });
   } else {
-    scanResults();
+    console.info('[ScholarRank] extension is disabled - auto-scan disabled');
   }
 
-  const observer = new MutationObserver(() => {
-    scanResults();
-  });
-
-  observer.observe(document.body, {
-    childList: true,
-    subtree: true
+  // Listen for manual query message from popup
+  chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+    if (message.type === 'SCHOLAR_RANK_MANUAL_QUERY') {
+      console.info('[ScholarRank] manual query triggered');
+      // Reset all results to allow reprocessing
+      document.querySelectorAll('.gs_ri').forEach((node) => {
+        node.dataset.scholarRankProcessed = 'false';
+        node.dataset.scholarRankScheduled = 'false';
+        // Remove existing badges
+        node.querySelectorAll('.scholar-rank-badge').forEach((badge) => badge.remove());
+      });
+      // Trigger scan
+      scanResults();
+      sendResponse({ success: true });
+    }
   });
 })();

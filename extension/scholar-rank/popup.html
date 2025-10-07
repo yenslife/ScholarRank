@@ -132,6 +132,30 @@
       color: #d93025;
     }
 
+    .manual-query-btn {
+      width: 100%;
+      margin-top: 12px;
+      padding: 10px 16px;
+      background: #1a73e8;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .manual-query-btn:hover:not(:disabled) {
+      background: #1765cc;
+    }
+
+    .manual-query-btn:disabled {
+      background: #dadce0;
+      color: #5f6368;
+      cursor: not-allowed;
+    }
+
     .footer {
       margin-top: 16px;
       padding-top: 12px;
@@ -172,6 +196,10 @@
   <div id="status" class="status enabled">
     Extension is enabled
   </div>
+
+  <button id="manualQuery" class="manual-query-btn" disabled>
+    Query All Papers
+  </button>
 
   <div class="footer">
     <a href="https://github.com/yenslife/ScholarRank" target="_blank">GitHub</a> ·
