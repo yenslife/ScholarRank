@@ -32,6 +32,7 @@ ScholarRanks focuses on two deliverables:
 - Follow your standard git workflow to review and commit changes after updates.
 
 ## TODO
+- Add more conference rank sources (e.g., CORE, Google Scholar Metrics).
 - Expand venue aliases and rankings beyond the demo seed data.
 - Automate transforming scraper output (e.g., scheduled scraper runs) so the dataset stays fresh.
 - Add automated checks (lint/tests) to guard future changes.
